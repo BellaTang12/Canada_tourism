@@ -14,7 +14,6 @@ library(tidyverse)
 library(kableExtra)
 library(lmtest)
 library(ggplot2)
-setwd("~/Desktop/Canada-tourism")
 data <- read.csv("~/Desktop/Canada-tourism/inputs/data/ITS-3152-E-2017-VIS_F1.csv")
 
 # data cleaning
