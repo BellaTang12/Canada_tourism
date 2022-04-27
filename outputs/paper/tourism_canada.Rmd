@@ -30,8 +30,7 @@ library(kableExtra)
 library(lmtest)
 library(ggplot2)
 # load the dataset
-setwd("~/Desktop/Canada-tourism")
-data <- read.csv("~/Desktop/Canada-tourism/inputs/data/ITS-3152-E-2017-VIS_F1.csv")
+data <- read.csv("~/Desktop/Canada_tourism/inputs/data/ITS-3152-E-2017-VIS_F1.csv")
 # data cleaning
 clean_data<-data %>% 
   rename(number_people=VTPSZE,trip_reason=VRSN6C, entry_place=VRTEN, total_days=VTOTDAYS, total_spending=VGLTOTSP, visitor_id=VPUMFID)%>%
