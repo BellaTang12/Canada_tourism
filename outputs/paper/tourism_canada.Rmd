@@ -3,7 +3,7 @@ title: "International tourist's traveling spending in Canada"
 subtitle: "Analysis on Canada 2017 International Travel Survey (ITS)"
 author: 
   - Xuetong Tang
-thanks: "Code and data are available at: https://github.com/BellaTang12/Canada_tourism.git"
+thanks: "Code and data are available at: https://github.com/BellaTang12/Canada_tourism.git "
 date: 04/27/2022
 header-includes:
   - |
