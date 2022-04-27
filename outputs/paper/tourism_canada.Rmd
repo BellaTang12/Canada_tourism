@@ -106,7 +106,7 @@ knitr::kable(summary_table,caption="Summary table of traveler's total spending i
 
 ```{r fig3, echo=FALSE,message=FALSE,warning=FALSE, fig.cap = "A histogram"}
 # histogram of total spending
-clean_data %>% ggplot(aes(x=total_spending))+geom_histogram(fill="blue",color="white",bins =80 )+theme_classic()+labs(x="Total spending in Canada",title="Histogram showing distribution of traveller's total spending in Canada")
+clean_data %>% ggplot(aes(x=total_spending))+geom_histogram(fill="blue",color="white",bins =80 )+theme_classic()+labs(x="Total spending in Canada",y="Frequency", title="Histogram showing distribution of traveler's total spending in Canada")
 
 ```
 
@@ -136,15 +136,15 @@ clean_data %>% ggplot(aes(x=carrier_class,fill=as.factor(trip_reason)))+geom_bar
 To analyze traveler's class of fare of transportation into Canada, the barplot \@ref(fig:fig5) above illustrates the distribution of  traveler's class of fare of transportation into Canada with each color representing different trip reason. From the plot, we could see that the majority of travelers choose economy class when entering Canada, especially those travelers come for business and visiting friends or relatives.\
 
 \newpage
-```{r fig6,echo=FALSE,message=FALSE,warning=FALSE, fig.cap = "Scatterplot"}
+```{r fig6,echo=FALSE,message=FALSE,warning=FALSE, fig.cap = "A scatterplot"}
 # scatterplot of total days
 clean_data%>%ggplot(aes(x=as.numeric(total_days),y=total_spending,colour=trip_reason))+
-  labs(x="Total days in Canada",y="Total spending", title = "Scatterplot between total days and total spending in Canada with different trip reason")+
+  labs(x="Total days in Canada",y="Total spending", title = "Scatterplot between total days and total spending in Canada")+
   geom_point(alpha=0.5)+
   theme_classic()+
-  theme(legend.position = "bottom")+   
+  theme(legend.position = "bottom")+
   guides(color=guide_legend("Trip reason"))+
-  scale_color_discrete(breaks=c("1","2","3","4","5","6"),labels=c("Holidays, leisure or recreation","To visit friends or relatives","Other personal - pleasure", "Personal reason - other", "Attend a conference, convention or trade show", "Other business reason"))+theme(plot.title = element_text(size=11))
+  scale_color_discrete(breaks=c("1","2","3","4","5","6"),labels=c("Holidays, leisure or recreation","To visit friends or relatives","Other personal - pleasure", "Personal reason - other", "Attend a conference, convention or trade show", "Other business reason"))
 ```
 
 To give a brief view of the relationship between traveler's total days and total spending in Canada, we construct the scatterplot \@ref(fig:fig6) above. In the scatterplot, different trip reasons are shown by different colors. From the plot, we find that travelers who visits for holidays, leisure or recreation usually stay less than 50 days in Canada while travelers who visits to see friends or relatives may stay longer. On the other hand, the total staying time in Canada for travelers who visits for business reasons or other personal reasons is more evenly distributed. What's more, from the plot, we cannot see a explicit relationship between total days in Canada and total spending in Canada.
@@ -152,15 +152,15 @@ To give a brief view of the relationship between traveler's total days and total
 \newpage
 # Result
 ## Relationship between total days in Canada and total spending
-```{r fig7,echo=FALSE,message=FALSE,warning=FALSE, fig.cap = "Scatterplot"}
+```{r fig7,echo=FALSE,message=FALSE,warning=FALSE, fig.cap = "A scatterplot"}
 # linear regression on total spending and total days
 clean_data%>%ggplot(aes(x=as.numeric(total_days),y=total_spending,colour=trip_reason))+
-  labs(x="Total days in Canada",y="Total spending", title = "Linear relationship between total days and total spending in Canada with different trip reason")+
+  labs(x="Total days in Canada",y="Total spending", title = "Linear relationship between total days and total spending in Canada")+
   geom_point(alpha=0.5)+
   geom_smooth(method="lm",se=FALSE)+theme_classic()+
   theme(legend.position = "bottom")+   
   guides(color=guide_legend("Trip reason"))+
-  scale_color_discrete(breaks=c("1","2","3","4","5","6"),labels=c("Holidays, leisure or recreation","To visit friends or relatives","Other personal - pleasure", "Personal reason - other", "Attend a conference, convention or trade show", "Other business reason"))+theme(plot.title = element_text(size=11))
+  scale_color_discrete(breaks=c("1","2","3","4","5","6"),labels=c("Holidays, leisure or recreation","To visit friends or relatives","Other personal - pleasure", "Personal reason - other", "Attend a conference, convention or trade show", "Other business reason"))
 ```
 
 To analyze the relationship between traveler's total days and total spending in Canada under different trip reason, we construct the linear regression model \@ref(fig:fig7) above. The regression lines shown with different color represents different trip reasons. From the graph, we could clear see that, in general, as traveler's total days in Canada increases, their total spending increases. More specifically, When total days in Canada remain constant, travelers who travel for personal pleasure spend the most; Travelers who travel to attend a conference, convention ot trad spend the second highest. Travelers who travel for holidays spend the third highest. Travelers who travel for business spend the forth highest. Travelers who travel for other personal reason spend the second least. Travelers who travel to visit friends or relatives spend the least.\
