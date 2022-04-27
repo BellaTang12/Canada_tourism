@@ -14,6 +14,8 @@ library(tidyverse)
 library(kableExtra)
 library(lmtest)
 library(ggplot2)
+
+# read raw data
 data <- read.csv("~/Desktop/Canada-tourism/inputs/data/ITS-3152-E-2017-VIS_F1.csv")
 
 # data cleaning
@@ -30,7 +32,7 @@ clean_data<-data %>%
                                entry_place==2~"Country not United States",
                                entry_place==3~"Other country via United States"))%>%
   filter(!is.na(carrier_class))%>% # move out missing values
-  mutate(trip_reason=as.factor(trip_reason), entry_place=as.factor(entry_place)) #mutate variable to be dummy variable
+  mutate(trip_reason=as.factor(trip_reason), entry_place=as.factor(entry_place)) # mutate variable to be dummy variable
 
 
 
