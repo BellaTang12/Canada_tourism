@@ -9,7 +9,7 @@
 
 
 #### Workspace setup ####
-# Use R Projects and setwd().
+# Use R Projects not setwd().
 library(tidyverse)
 library(kableExtra)
 library(lmtest)
